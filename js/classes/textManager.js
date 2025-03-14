@@ -18,7 +18,7 @@ class TextManager {
     // type is expected to take from the static textType
     addMessage(message, type, audio = null, audioOffset = 0) {
         // In add is called before last message was finished displaying
-        if (this.#textRatio < this.#currentMessage.length) this.#currentElement.innerHTML = this.#currentMessage;
+        if (this.#textRatio < this.#currentMessage?.length) this.#currentElement.innerHTML = this.#currentMessage;
 
         const messageElement = document.createElement("p");
         messageElement.classList.add(type);
