@@ -11,10 +11,16 @@
     <script src="lang/en/chat.js"></script>
     <script src="js/constants/paths.js"></script>
     <script src="js/classes/utils.js" defer></script>
+    <script src="js/classes/apiHub.js" defer></script>
+    <script src="js/classes/sprite.js" defer></script>
+    <script src="js/classes/audioManager.js" defer></script>
+    <script src="js/classes/textManager.js" defer></script>
+    <script src="js/classes/chatSystem.js" defer></script>
     <script src="js/chat.js" defer></script>
 </head>
 <body>
     <div class="background classroom">
+        <audio id="speech"></audio>
         <img id="spongebob"> <!-- Expect JS to set the values -->
         <div id="history-box">
             <p id="history-box-label"></p>
