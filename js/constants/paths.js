@@ -10,5 +10,6 @@ const images = Object.freeze({
 });
 
 const audio = Object.freeze({
-    bgm: "../../resources/audio/SpongebobED.mp3"
+    bgm: "../../resources/audio/SpongebobED.mp3",
+    serverError: "../../resources/audio/ServerErrorResponse.wav",
 });

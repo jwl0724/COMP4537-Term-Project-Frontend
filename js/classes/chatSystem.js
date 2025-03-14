@@ -21,7 +21,8 @@ class ChatSystem {
 
         } catch(e) {
             this.#sprite.emote(Sprite.emotions.mock);
-            this.#textManager.addMessage("gEt BeTtEr InTeRnEt HAHA", TextManager.textType.response);
+            this.#textManager.addMessage(ERROR_SERVER, TextManager.textType.response);
+            this.#audioManager.playSpeech(audio.serverError);
         }
     }
 }
