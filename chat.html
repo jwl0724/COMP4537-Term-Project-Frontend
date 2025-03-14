@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/resources/images/favicon.png">
+    <title>Chat</title>
+
+    <!-- Scripts -->
+    <script src="lang/en/chat.js"></script>
+    <script src="js/constants/paths.js"></script>
+    <script src="js/classes/utils.js" defer></script>
+    <script src="js/chat.js" defer></script>
+</head>
+<body>
+    <div class="background classroom">
+        <img id="spongebob"> <!-- Expect JS to set the values -->
+        <div id="history-box">
+            <p id="history-box-label"></p>
+            <div id="history-log"></div> <!-- Expect to populate history here -->
+        </div>
+    </div>
+    <form class="chatbox">
+        <input id="input-text" type="text">
+        <button id="submit"></button>
+    </form>
+</body>
+</html>
