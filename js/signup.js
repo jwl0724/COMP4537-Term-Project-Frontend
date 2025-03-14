@@ -8,3 +8,5 @@ Utils.populatePlaceholderById({
     password: PASSWORD,
     confirmation: CONFIRMATION
 });
+
+const credentialClass = new Credentials();
