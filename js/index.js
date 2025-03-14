@@ -5,5 +5,7 @@ Utils.populateById({
 });
 
 const music = new MusicManager();
-music.play();
+document.addEventListener("click", () => music.play());
+
+
 // TODO: Add muting and unmuting later
