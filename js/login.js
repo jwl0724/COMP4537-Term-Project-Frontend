@@ -4,6 +4,6 @@ Utils.populateById({
 });
 
 Utils.populatePlaceholderById({
-    username: USERNAME,
+    email: EMAIL,
     password: PASSWORD
 });
