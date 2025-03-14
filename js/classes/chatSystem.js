@@ -16,6 +16,7 @@ class ChatSystem {
             const response = await APIHub.chat(prompt);
             this.#textManager.addMessage(response.text, TextManager.textType.response, this.#audioManager);
             this.#audioManager.playSpeech(response.audio);
+            this.#sprite.emote(response.emotion);
             // Going to need the AI to say it's emotion in like the first word or something like that
             this.#sprite.emote(Sprite.emotions.happy);
 
