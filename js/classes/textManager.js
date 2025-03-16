@@ -22,6 +22,8 @@ class TextManager {
 
         const messageElement = document.createElement("p");
         messageElement.classList.add(type);
+        messageElement.classList.add("text-yellow-200");
+        
 
         this.#historyLog.appendChild(messageElement);
         this.#currentElement = messageElement;
@@ -31,7 +33,9 @@ class TextManager {
 
         // Display the text immediately if it's a prompt
         if (type === TextManager.textType.prompt) {
+            
             messageElement.innerHTML = message;
+            messageElement.classList.remove("text-yellow-200");
             return;
         }
 

@@ -14,18 +14,19 @@ class ChatSystem {
         this.#textManager.addMessage(prompt, TextManager.textType.prompt);
         try {
             const response = await APIHub.chat(prompt);
-            // const response = { response: "sad:  Aw, tartar sauce! JS doesn't suck!  It's lik…y! I can't wait! To make some delicious JS code!\n" }; // For testing purposes
+            // const response = { response: "happy:  Aw, tartar sauce! JS doesn't suck!  It's lik…y! I can't wait! To make some delicious JS code!\n" }; // For testing purposes
             console.log("response: ",response);
-            const emoteAndText = this.separateMessagesToEmoteAndText(response.response);
-            console.log("emoteAndText: ",emoteAndText);
-            console.log("emoteAndText.emotion: ",emoteAndText.emotion);
-            console.log("emoteAndText.text: ", emoteAndText.text);
-            const emotion = Object.values(Sprite.emotions).includes(emoteAndText.emotion)
-            ? emoteAndText.emotion
+
+            let emotion = Object.keys(response)[0];
+            const text = response[emotion];
+
+            emotion = Object.values(Sprite.emotions).includes(emotion)
+            ? emotion
             : Sprite.emotions.neutral;
+
             // this.#audioManager.playSpeech(response.audio);   // Need to add audio to the response object later
             this.#sprite.emote(emotion);
-            this.#textManager.addMessage(emoteAndText.text, TextManager.textType.response);
+            this.#textManager.addMessage(text, TextManager.textType.response);
 
 
         } catch (e) {
