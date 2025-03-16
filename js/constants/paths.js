@@ -13,3 +13,7 @@ const audio = Object.freeze({
     bgm: "../../resources/audio/SpongebobED.mp3",
     serverError: "../../resources/audio/ServerErrorResponse.wav",
 });
+
+const background = Object.freeze({
+    indexBackground: "../../resources/images/background1.jpg",
+});

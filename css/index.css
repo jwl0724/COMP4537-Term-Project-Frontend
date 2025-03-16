@@ -1,0 +1,45 @@
+body {
+    background-image: url("../../resources/images/background1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+}
+#title{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.index-button{
+    background-image: url("../../resources/images/board.png");
+        width: 200px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        /* 水平居中 */
+        align-items: center;
+        /* 文字放在图片的底部 */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+}
+
+.index-button:hover {
+    transform: scale(1.1);
+}
+
+#spongebob{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#spongebob:hover {
+    transform: scale(1.1);
+}

@@ -1,3 +1,3 @@
 const TITLE = "Chat With Spongebob";
-const SIGNUP = "Start Now";
+const SIGNUP = "Sign Up";
 const LOGIN = "Login";
