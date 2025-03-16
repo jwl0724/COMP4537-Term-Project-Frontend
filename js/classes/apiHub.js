@@ -12,6 +12,7 @@ class APIHub {
                 password: password
             })
         });
+
         return await response.json();
     }
 
