@@ -45,7 +45,7 @@ class APIHub {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                prompt: text
+                message: text
             })
         });
         return await response.json();

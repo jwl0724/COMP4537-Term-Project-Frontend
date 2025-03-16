@@ -28,6 +28,7 @@ class TextManager {
         this.#currentMessage = message;
         this.#textRatio = 0;
 
+
         // Display the text immediately if it's a prompt
         if (type === TextManager.textType.prompt) {
             messageElement.innerHTML = message;
