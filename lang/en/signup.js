@@ -1,5 +1,8 @@
-const LABEL = "Sign Up";
-const SUBMIT = "Create Account";
+const TITLE = "Create a New Account";
+const SUBMIT = "Sign Up";
+const EMAIL_LABEL = "Email";
+const PASSWORD_LABEL = "Password";
+const CONFIRMATION_LABEL = "Enter Your Password Again";
 const EMAIL = "Enter email";
 const PASSWORD = "Enter password";
 const CONFIRMATION = "Confirm password";

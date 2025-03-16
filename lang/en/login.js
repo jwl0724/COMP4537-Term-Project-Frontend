@@ -1,5 +1,7 @@
-const LABEL = "Login";
+const TITLE = "Welcome Back!";
 const SUBMIT = "Login";
+const EMAIL_LABEL = "Email";
+const PASSWORD_LABEL = "Password";
 const EMAIL = "Enter email";
 const PASSWORD = "Enter password";
 const ERROR_SERVER = "ERROR: Could not connect to server";

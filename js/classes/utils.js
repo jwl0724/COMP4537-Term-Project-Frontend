@@ -1,7 +1,7 @@
 class Utils {
     static populateById(pairings) {
         for(const [id, text] of Object.entries(pairings)) {
-            document.getElementById(id).innerHTML = text;
+            document.getElementById(id).innerText = text;
         }
     }
 

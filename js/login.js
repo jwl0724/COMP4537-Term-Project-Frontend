@@ -1,5 +1,7 @@
 Utils.populateById({
-    label: LABEL,
+    title: TITLE,
+    'email-label': EMAIL_LABEL,
+    'password-label': PASSWORD_LABEL,
     submit: SUBMIT
 });
 
