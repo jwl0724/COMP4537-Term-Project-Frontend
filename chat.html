@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
     <link rel="icon" type="image/x-icon" href="/resources/images/favicon.png">
     <title>Chat</title>
 
@@ -18,19 +19,36 @@
     <script src="js/classes/textManager.js" defer></script>
     <script src="js/classes/chatSystem.js" defer></script>
     <script src="js/chat.js" defer></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
+    
+    <!-- tailwind -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="background classroom">
-        <audio id="speech"></audio>
-        <img id="spongebob"> <!-- Expect JS to set the values -->
-        <div id="history-box">
-            <p id="history-box-label"></p>
-            <div id="history-log"></div> <!-- Expect to populate history here -->
+<body class="h-screen">
+    <div class="h-3/4 flex justify-center items-center p-10">
+        <div class="w-1/2">
+
+            <audio id="speech"></audio>
+            <img id="spongebob" class="w-full"> <!-- Expect JS to set the values -->
+        </div>
+        <div id="history-box" class="w-1/2 p-5 hide-scrollbar">
+            <p id="history-box-label" class="mt-2 text-center"></p>
+            <div id="history-log" class="h-96 overflow-y-auto pl-10 pb-10 hide-scrollbar"></div> <!-- Expect to populate history here -->
         </div>
     </div>
-    <form class="chatbox">
-        <input id="input-text" type="text">
-        <button id="submit" type="button"></button>
-    </form>
+    <div class="chatbox-container flex justify-center">
+
+        <form class="chatbox flex flex-col">
+            <textarea id="input-text" type="text" class="text-sm mt-4 w-5/6 h-24 bg-transparent border-none text-lg p-2 focus:outline-none white-space: normal overflow-wrap: break-word" required></textarea>
+            <div class="flex items-end w-full">
+                <button id="submit" type="button" class="ml-auto mr-12 mb-7"></button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

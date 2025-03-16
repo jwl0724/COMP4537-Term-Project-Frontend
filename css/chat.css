@@ -1,0 +1,59 @@
+
+body {
+    background-image: url("../../resources/images/background2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+}
+
+
+.chatbox{
+    background-image: url("../../resources/images/longBoard.png");
+    width: 90%;
+    height: auto;
+    background-size: 100% 100%;
+    position: fixed;
+    bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+
+
+}
+
+#history-box{
+    background-image: url("../../resources/images/blackboard.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: block;
+    font-size: 24px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#history-log::-webkit-scrollbar {
+    display: none;
+    /* Hides the scrollbar */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Edge */
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* For Firefox */
+}
