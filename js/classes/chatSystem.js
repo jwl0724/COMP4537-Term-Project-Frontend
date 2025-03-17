@@ -14,11 +14,14 @@ class ChatSystem {
         this.#textManager.addMessage(prompt, TextManager.textType.prompt);
         try {
             const response = await APIHub.chat(prompt);
-            // const response = { response: "happy:  Aw, tartar sauce! JS doesn't suck!  It's lik…y! I can't wait! To make some delicious JS code!\n" }; // For testing purposes
-            console.log("response: ",response);
+            if (response.error) {
+                this.#sprite.emote(Sprite.emotions.sad);
+                this.#textManager.addMessage(ERROR_CHAT); // Include stock audio response later
+                return;
+            }
 
-            let emotion = Object.keys(response)[0];
-            const text = response[emotion];
+            let emotion = response.emotion;
+            const text = response.text;
 
             emotion = Object.values(Sprite.emotions).includes(emotion)
             ? emotion
