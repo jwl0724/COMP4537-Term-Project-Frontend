@@ -23,7 +23,7 @@ class TextManager {
         const messageElement = document.createElement("p");
         messageElement.classList.add(type);
         messageElement.classList.add("text-yellow-200");
-        
+
 
         this.#historyLog.appendChild(messageElement);
         this.#currentElement = messageElement;
@@ -33,7 +33,7 @@ class TextManager {
 
         // Display the text immediately if it's a prompt
         if (type === TextManager.textType.prompt) {
-            
+
             messageElement.innerHTML = message;
             messageElement.classList.remove("text-yellow-200");
             return;
@@ -46,9 +46,9 @@ class TextManager {
                 return;
             }
             if (audio) this.#textRatio = audio.getAudioPosition() / (audio.getAudioLength() - audioOffset) * this.#currentMessage.length;
-            else this.#textRatio += 10 / 1000 * this.#currentMessage.length;
+            else this.#textRatio += 25 / 1000 * this.#currentMessage.length;
 
             this.#currentElement.innerHTML = this.#currentMessage.substring(0, this.#textRatio);
-        }, 100);
+        }, 50);
     }
 }

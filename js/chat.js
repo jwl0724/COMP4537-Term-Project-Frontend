@@ -13,7 +13,6 @@ window.onload = () => {
     if (!cookie) {
         window.location.href = "/index.html";
     }
-    console.log("cookie: ", cookie);
     document.cookie = cookie;
 };
 

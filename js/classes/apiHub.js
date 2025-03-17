@@ -1,7 +1,6 @@
 class APIHub {
 
     static async login(email, password) {
-        console.log("login", email);
         const endpoint = endpoints.backend + routes.login;
         const response = await fetch(endpoint, {
             method: "POST",
@@ -15,7 +14,6 @@ class APIHub {
             })
         });
         sessionStorage.setItem("cookie", document.cookie);
-        // console.log(document.cookie);
         return await response.json();
     }
 
