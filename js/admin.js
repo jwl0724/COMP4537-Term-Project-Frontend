@@ -7,7 +7,10 @@ const userRole = localStorage.getItem('role');
 // };
 
 
+Utils.populateById({
+    logout: LOGOUT,
+    chat: CHAT,
+    admin: ADMIN
+});
 
-document.getElementById("logout").innerText = LOGOUT;
-document.getElementById("chat").innerText = CHAT;
-document.getElementById("admin").innerText = ADMIN;
+HandleUser.renderUserTable();

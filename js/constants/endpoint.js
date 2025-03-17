@@ -10,5 +10,5 @@ const routes = Object.freeze({
     reset: "/reset",
     chat: "/chat",
     forgotPassword: "/forgot-password",
-    getUsers: "/get-user-data"
+    getAllUsers: "/get-all-users"
 });

@@ -30,7 +30,7 @@ class Credentials {
         let data;
         try {
             data = await APIHub.login(email, password);
-
+            localStorage.setItem("role", data.role);
             if (data.error) this.#errorField.innerText = data.error;
             else window.location.href = "/chat.html";  //need to change later??
 
@@ -57,7 +57,10 @@ class Credentials {
         let data;
         try {
             data = await APIHub.register(email, password);
+            localStorage.setItem("role", data.role);
+
             if (data.error) this.#errorField.innerText = data.error;
+
             else window.location.href = "/chat.html";
 
         } catch (e) {

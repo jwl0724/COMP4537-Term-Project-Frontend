@@ -13,7 +13,6 @@ class APIHub {
                 password: password
             })
         });
-        sessionStorage.setItem("cookie", document.cookie);
         return await response.json();
     }
 
@@ -30,7 +29,7 @@ class APIHub {
                 password: password
             })
         });
-        sessionStorage.setItem("cookie", document.cookie);
+
 
         return await response.json();
     }
@@ -75,9 +74,15 @@ class APIHub {
         const endpoint = endpoints.STT;
     }
 
-    static async getUsers() {
-        const endpoint = endpoints.backend + routes.getUsers;
-        const response = await fetch(endpoint);
+    static async getAllUsers() {
+        const endpoint = endpoints.backend + routes.getAllUsers;
+        const response = await fetch(endpoint, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
         return await response.json();
     }
 }
