@@ -1,0 +1,9 @@
+const TITLE = "Forgot Password";
+const PROMPT = "Enter your email to reset your password";
+const LOGIN_REDIRECT = "Remembered your password? Log in";
+const SENDING = "Sending...";
+const SUBMIT = "Send Reset Link";
+const CONFIRM = "A password reset link has been sent to your email";
+const ERROR_SERVER = "Something went wrong. Please try again.";
+const ERROR_MISSING_EMAIL = "Please enter your email address";
+const ERROR_NETWORK = "Network error. Please try again later.";
