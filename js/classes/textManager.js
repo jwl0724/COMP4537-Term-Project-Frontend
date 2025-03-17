@@ -22,7 +22,7 @@ class TextManager {
 
         const messageElement = document.createElement("p");
         messageElement.classList.add(type);
-        messageElement.classList.add("text-yellow-200");
+        messageElement.classList.add(style.yellowText);
 
 
         this.#historyLog.appendChild(messageElement);
@@ -35,7 +35,7 @@ class TextManager {
         if (type === TextManager.textType.prompt) {
 
             messageElement.innerHTML = message;
-            messageElement.classList.remove("text-yellow-200");
+            messageElement.classList.remove(style.yellowText);
             return;
         }
 
