@@ -8,5 +8,6 @@ const routes = Object.freeze({
     signup: "/signup",
     logout: "/logout",
     reset: "/reset",
-    chat: "/chat"
+    chat: "/chat",
+    forgotPassword: "/forgot-password"
 });
