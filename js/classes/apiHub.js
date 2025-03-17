@@ -89,4 +89,10 @@ class APIHub {
     static async stt(audio) {
         const endpoint = endpoints.STT;
     }
+
+    static async getUsers() {
+        const endpoint = endpoints.backend + routes.getUsers;
+        const response = await fetch(endpoint);
+        return await response.json();
+    }
 }

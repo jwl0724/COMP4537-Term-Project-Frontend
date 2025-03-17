@@ -7,13 +7,16 @@ Utils.populatePlaceholderById({
     "input-text": INPUT
 });
 
+const userRole = localStorage.getItem('role');
 
 window.onload = () => {
-    const cookie = sessionStorage.getItem("cookie");
-    if (!cookie) {
-        window.location.href = "/index.html";
+    if (userRole === 'admin') {
+        document.getElementById('admin').style.display = 'block';
+    } else if (userRole === 'user') {
+        document.getElementById('admin').style.display = 'none';
+    } else {
+        window.location.href = '/login.html';
     }
-    document.cookie = cookie;
 };
 
 const chat = new ChatSystem();
@@ -23,3 +26,7 @@ document.getElementById("submit").onclick = () => {
         document.getElementById("input-text").value = "";
     }
 };
+
+document.getElementById("logout").innerText = LOGOUT;
+document.getElementById("chat").innerText = CHAT;
+document.getElementById("admin").innerText = ADMIN;
