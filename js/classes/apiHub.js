@@ -56,6 +56,21 @@ class APIHub {
         return await response.json();
     }
 
+    static async forgotPassword(email) {
+        const endpoint = endpoints.backend + routes.forgotPassword;
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email
+            })
+        });
+        return await response.json();
+    }
+
+    // TODO: See if this is needed for after reset link was clicked
     static async reset(email) {
         const endpoint = endpoints.backend + routes.reset;
         const response = await fetch(endpoint, {
