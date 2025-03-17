@@ -9,5 +9,6 @@ const routes = Object.freeze({
     logout: "/logout",
     reset: "/reset",
     chat: "/chat",
-    forgotPassword: "/forgot-password"
+    forgotPassword: "/forgot-password",
+    getUsers: "/get-user-data"
 });
