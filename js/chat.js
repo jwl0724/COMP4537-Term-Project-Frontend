@@ -7,6 +7,16 @@ Utils.populatePlaceholderById({
     "input-text": INPUT
 });
 
+
+window.onload = () => {
+    const cookie = sessionStorage.getItem("cookie");
+    if (!cookie) {
+        window.location.href = "/index.html";
+    }
+    console.log("cookie: ", cookie);
+    document.cookie = cookie;
+};
+
 const chat = new ChatSystem();
 document.getElementById("submit").onclick = () => {
     if (document.getElementById("input-text").value !== "") {

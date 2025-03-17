@@ -35,21 +35,4 @@ class ChatSystem {
             this.#audioManager.playSpeech(audio.serverError);
         }
     }
-
-    separateMessagesToEmoteAndText(response) {
-        const cleanedResponse = response.replace(/\n/g, '');
-        const match = cleanedResponse.match(/^(\w+):\s*(.*)$/);
-
-        if (match) {
-            return {
-                emotion: match[1],
-                text: match[2]
-            };
-        } else {
-            return {
-                emotion: "neutral",
-                text: response
-            };
-        }
-    }
 }

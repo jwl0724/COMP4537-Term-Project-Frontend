@@ -34,7 +34,7 @@ class Credentials {
             if (data.error) this.#errorField.innerText = data.error;
             else window.location.href = "/chat.html";  //need to change later??
 
-        } catch(e) {
+        } catch (e) {
             this.#errorField.innerText = ERROR_SERVER;
         }
     }
@@ -60,7 +60,7 @@ class Credentials {
             if (data.error) this.#errorField.innerText = data.error;
             else window.location.href = "/chat.html";
 
-        } catch(e) {
+        } catch (e) {
             this.#errorField.innerText = ERROR_SERVER;
         }
     }

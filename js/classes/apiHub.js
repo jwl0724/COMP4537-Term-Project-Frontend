@@ -1,9 +1,11 @@
 class APIHub {
 
     static async login(email, password) {
+        console.log("login", email);
         const endpoint = endpoints.backend + routes.login;
         const response = await fetch(endpoint, {
             method: "POST",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -12,7 +14,8 @@ class APIHub {
                 password: password
             })
         });
-
+        sessionStorage.setItem("cookie", document.cookie);
+        // console.log(document.cookie);
         return await response.json();
     }
 
@@ -20,6 +23,7 @@ class APIHub {
         const endpoint = endpoints.backend + routes.signup;
         const response = await fetch(endpoint, {
             method: "POST",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -28,6 +32,8 @@ class APIHub {
                 password: password
             })
         });
+        sessionStorage.setItem("cookie", document.cookie);
+
         return await response.json();
     }
 
@@ -41,8 +47,9 @@ class APIHub {
         const endpoint = endpoints.backend + routes.chat;
         const response = await fetch(endpoint, {
             method: "POST",
+            credentials: "include",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 message: text
