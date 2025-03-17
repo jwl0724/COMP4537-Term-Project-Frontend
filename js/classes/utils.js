@@ -10,5 +10,15 @@ class Utils {
             document.getElementById(id).placeholder = text;
         }
     }
-    
+
+    static populateResponseMessage(element, text, color, ...remove) {
+        element.textContent = text;
+        if (color) element.classList.add(color);
+        if (remove) remove.forEach(property => element.classList.remove(property));
+    }
+
+    static setButtonState(button, text, disable) {
+        button.textContent = text;
+        button.disabled = disable;
+    }
 }
