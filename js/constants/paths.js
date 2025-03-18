@@ -12,6 +12,8 @@ const images = Object.freeze({
 const audio = Object.freeze({
     bgm: "../../resources/audio/SpongebobED.mp3",
     serverError: "../../resources/audio/ServerErrorResponse.wav",
+    chatbotError: "../../resources/audio/ChatbotErrorResponse.wav",
+    unauthorizedError: "../../resources/audio/UnauthorizedErrorResponse.wav"
 });
 
 const background = Object.freeze({
