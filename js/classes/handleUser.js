@@ -2,7 +2,7 @@ class HandleUser{
     static renderTable(id,data) {
         const table = document.getElementById(id);
         table.innerHTML = '';
-        let insertContent = 'hi';
+        let insertContent = '';
         const headerList = Object.keys(data[0]);
 
         insertContent += `<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
