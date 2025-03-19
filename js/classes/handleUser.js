@@ -2,7 +2,7 @@ class HandleUser{
     static renderTable(id,data) {
         const table = document.getElementById(id);
         table.innerHTML = '';
-        let insertContent = '';
+        let insertContent = 'hi';
         const headerList = Object.keys(data[0]);
 
         insertContent += `<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -12,7 +12,7 @@ class HandleUser{
             insertContent += `<th scope="col" class="px-6 py-3">${header}</th>`;
         }
         insertContent += "</tr></><tbody>"
-        for (row of data) {
+        for (const row of data) {
             insertContent += '<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">';
 
             for (const header of headerList) {
@@ -20,10 +20,13 @@ class HandleUser{
             }
             insertContent += '</tr>';
         }
+        insertContent += '</tbody></table>';
+        table.innerHTML = insertContent;
     }
 
     static async renderUserTable() {
         const data = await APIHub.getAllUsers();
+
         HandleUser.renderTable('user-table', data);
     }
 
