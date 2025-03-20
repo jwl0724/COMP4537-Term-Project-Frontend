@@ -1,6 +1,9 @@
 Utils.populateById({
     "history-box-label": HISTORY_BOX_LABEL,
-    submit: SUBMIT
+    submit: SUBMIT,
+    logout: LOGOUT,
+    chat: CHAT,
+    admin: ADMIN
 });
 
 Utils.populatePlaceholderById({
@@ -27,6 +30,3 @@ document.getElementById("submit").onclick = () => {
     }
 };
 
-document.getElementById("logout").innerText = LOGOUT;
-document.getElementById("chat").innerText = CHAT;
-document.getElementById("admin").innerText = ADMIN;
