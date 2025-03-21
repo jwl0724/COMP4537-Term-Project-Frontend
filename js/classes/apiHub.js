@@ -107,6 +107,7 @@ class APIHub {
 
     static async getMe() {
         const endpoint = this.#backendEP + routes.user;
+
         const response = await fetch(endpoint, {
             method: "GET",
             credentials: "include",
