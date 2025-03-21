@@ -106,7 +106,7 @@ class APIHub {
     }
 
     static async getMe() {
-        const endpoint = endpoints.backend + "/get-user-data";
+        const endpoint = endpoints.backend + "/me";
         const response = await fetch(endpoint, {
             method: "GET",
             credentials: "include",
