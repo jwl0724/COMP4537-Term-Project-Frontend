@@ -27,10 +27,9 @@ class Credentials {
             return;
         }
 
-        let data;
+
         try {
-            data = await APIHub.login(email, password);
-            localStorage.setItem("role", data.role);
+            await APIHub.login(email, password);
             if (data.error) this.#errorField.innerText = data.error;
             else window.location.href = "/chat.html";  //need to change later??
 

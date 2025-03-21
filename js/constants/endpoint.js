@@ -1,5 +1,6 @@
 const endpoints = Object.freeze({
-    backend: "https://term-project-metdh.ondigitalocean.app", // Local testing, need to change when hosted
+    // backend: "https://term-project-metdh.ondigitalocean.app", // Local testing, need to change when hosted
+    backend:"http://localhost:8000",
     STT: "ep here"
 });
 

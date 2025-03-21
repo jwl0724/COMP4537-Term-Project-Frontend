@@ -104,4 +104,17 @@ class APIHub {
         });
         return await response.json();
     }
+
+    static async getMe() {
+        const endpoint = endpoints.backend + "/get-user-data";
+        const response = await fetch(endpoint, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (response.status === 403) return null;
+        else return await response.json();
+    }
 }
