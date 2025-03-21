@@ -1,3 +1,1 @@
-
-
 const userData = APIHub.getMe();
