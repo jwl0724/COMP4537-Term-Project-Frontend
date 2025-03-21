@@ -29,7 +29,7 @@ class Credentials {
 
 
         try {
-            await APIHub.login(email, password);
+            const data = await APIHub.login(email, password);
             if (data.error) this.#errorField.innerText = data.error;
             else window.location.href = "/chat.html";  //need to change later??
 

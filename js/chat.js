@@ -1,28 +1,30 @@
-let userData;
-
-
 
 Utils.populatePlaceholderById({
     "input-text": INPUT
 });
 
+Utils.populateById({
+    "history-box-label": HISTORY_BOX_LABEL,
+    submit: SUBMIT,
+    logout: LOGOUT,
+    chat: CHAT,
+});
+
 window.onload = async () => {
-    userData = await APIHub.getMe();
+    const userData = await APIHub.getMe();
+    console.log(userData.role);
     if (userData.role === 'admin') {
         document.getElementById('admin').style.display = 'block';
+        Utils.populateById({
+            admin: ADMIN
+        });
     } else if (userData.role === 'user') {
         document.getElementById('admin').style.display = 'none';
     } else {
         window.location.href = '/login.html';
     }
 
-    Utils.populateById({
-        "history-box-label": HISTORY_BOX_LABEL,
-        submit: SUBMIT,
-        logout: LOGOUT,
-        chat: CHAT,
-        admin: ADMIN
-    });
+
 };
 
 const chat = new ChatSystem();
