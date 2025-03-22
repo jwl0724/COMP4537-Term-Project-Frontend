@@ -12,6 +12,7 @@ class ChatSystem {
 
     async sendPrompt(prompt) {
         this.#textManager.addMessage(prompt, TextManager.textType.prompt);
+        this.#sprite.toggleThink(true);
         try {
             const hubResponse = await APIHub.chat(prompt);
             const status = hubResponse.status;
@@ -26,12 +27,11 @@ class ChatSystem {
             ? emotion
             : Sprite.emotions.neutral;
 
-            // this.#audioManager.playSpeech(response.audio);   // Need to add audio to the response object later
-            this.#sprite.emote(emotion);
-            this.#textManager.addMessage(text, TextManager.textType.response);
-
+            this.#sprite.toggleThink(false);
+            this.#playChat(emotion, text); // Audio not implemented yet, add it when tts is implemented
 
         } catch (e) {
+            this.#sprite.toggleThink(false);
             this.#playChat(Sprite.emotions.mock, ERROR_SERVER, audio.serverError, 1.6);
         }
     }
@@ -47,9 +47,13 @@ class ChatSystem {
     }
 
     #playChat(emotion, text, audio = null, audioOffset = 0) {
-        this.#sprite.emote(emotion);
-        this.#audioManager.playSpeech(audio);
-        if (audio) this.#textManager.addMessage(text, TextManager.textType.response, this.#audioManager, audioOffset);
-        else this.#textManager.addMessage(text, TextManager.textType.response);
+        setTimeout(() => {
+            this.#sprite.emote(emotion);
+            this.#audioManager.playSpeech(audio);
+
+            if (audio) this.#textManager.addMessage(text, TextManager.textType.response, this.#audioManager, audioOffset);
+            else this.#textManager.addMessage(text, TextManager.textType.response);
+
+        }, Sprite.thinkTransitionTimeSeconds * 1000);
     }
 }
