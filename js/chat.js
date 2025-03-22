@@ -2,18 +2,23 @@ Utils.populatePlaceholderById({
     "input-text": INPUT,
 });
 
+Utils.populateById({
+    "history-box-label": HISTORY_BOX_LABEL,
+    submit: SUBMIT,
+    logout: LOGOUT,
+    chat: CHAT,
+});
+
 userData.then(data => {
-    if (data.role === "admin") document.getElementById("admin").style.display = "block";
+    if (data.role === "admin") {
+        document.getElementById("admin").style.display = "block";
+        Utils.populateById({
+            admin: ADMIN
+        });
+    }
     else if (data.role === "user") document.getElementById("admin").style.display = "none";
     else window.location.href = "/login.html";
-    
-    Utils.populatePlaceholderById({
-        "history-box-label": HISTORY_BOX_LABEL,
-        submit: SUBMIT,
-        logout: LOGOUT,
-        chat: CHAT,
-        admin: ADMIN
-    });
+
 })
 
 const chat = new ChatSystem();
