@@ -22,13 +22,16 @@ class ChatSystem {
 
             let emotion = response.emotion;
             const text = response.text;
+            let audio = response.audio;
 
             emotion = Object.values(Sprite.emotions).includes(emotion)
             ? emotion
             : Sprite.emotions.neutral;
 
+            if (!audio) audio = this.#audioManager.getRandomStockAudio();
+
             this.#sprite.toggleThink(false);
-            this.#playChat(emotion, text); // Audio not implemented yet, add it when tts is implemented
+            this.#playChat(emotion, text, audio);
 
         } catch (e) {
             this.#sprite.toggleThink(false);
