@@ -6,6 +6,7 @@ const images = Object.freeze({
     neutral: "../../resources/images/neutral.png",
     sad: "../../resources/images/sad.png",
     shocked: "../../resources/images/shocked.png",
+    think: "../../resources/images/think.png",
     favicon: "../../resources/images/favicon.png",
 });
 
