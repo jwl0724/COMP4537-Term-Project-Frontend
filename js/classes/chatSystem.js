@@ -18,15 +18,15 @@ class ChatSystem {
             const status = hubResponse.status;
             const response = hubResponse.data;
 
-            if(this.#playError(status, response)) return;
+            if (this.#playError(status, response)) return;
 
             let emotion = response.emotion;
             const text = response.text;
-            let audio = response.audio;
+            let audio = response.audioUrl;
 
             emotion = Object.values(Sprite.emotions).includes(emotion)
-            ? emotion
-            : Sprite.emotions.neutral;
+                ? emotion
+                : Sprite.emotions.neutral;
 
             if (!audio) audio = this.#audioManager.getRandomStockAudio();
 
