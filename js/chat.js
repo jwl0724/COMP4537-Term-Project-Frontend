@@ -22,10 +22,20 @@ userData.then(data => {
 })
 
 const chat = new ChatSystem();
-document.getElementById("submit").onclick = () => {
+const sendButton = document.getElementById("submit");
+sendButton.onclick = () => {
     if (document.getElementById("input-text").value !== "") {
         chat.sendPrompt(document.getElementById("input-text").value);
         document.getElementById("input-text").value = "";
     }
 };
+
+document.getElementById("input-text").addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        sendButton.click();
+    }
+}
+    
+    );
 
