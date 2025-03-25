@@ -37,8 +37,10 @@ class ChatSystem {
             if (!audio) audio = this.#audioManager.getRandomStockAudio();
 
             this.#sprite.toggleThink(false);
+            console.log("userAPICalls before:", window.userAPICalls);
             this.#playChat(emotion, text, audio);
             window.userAPICalls -= 1;
+            console.log("userAPICalls-1:", window.userAPICalls);
             document.getElementById("apiLeft").innerText = API_LEFT + window.userAPICalls;
 
         } catch (e) {
