@@ -13,9 +13,11 @@ userData.then(data => {
     if (data.role === "admin") {
         document.getElementById("admin").style.display = "block";
         Utils.populateById({
-            admin: ADMIN
+            admin: ADMIN,
+            apiLeft: API_LEFT + data.api_calls_left
         });
     }
+
     else if (data.role === "user") document.getElementById("admin").style.display = "none";
     else window.location.href = "/login.html";
 
