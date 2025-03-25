@@ -14,7 +14,7 @@ userData.then(data => {
         document.getElementById("admin").style.display = "block";
         Utils.populateById({
             admin: ADMIN,
-            apiLeft: API_LEFT + data.api_calls_left
+            apiLeft: API_LEFT + data.api_calls_left ? -1 : "∞",
         });
     }
 
@@ -38,6 +38,6 @@ document.getElementById("input-text").addEventListener("keyup", (event) => {
         sendButton.click();
     }
 }
-    
-    );
+
+);
 
