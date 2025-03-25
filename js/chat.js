@@ -37,7 +37,9 @@ sendButton.onclick = () => {
         sendButton.disabled = true;
         chat.sendPrompt(document.getElementById("input-text").value)
         .finally(() => {
-            sendButton.disabled = false;
+            setTimeout(() => {
+                sendButton.disabled = false;
+            }, 5000);
         });
         document.getElementById("input-text").value = "";
     }
