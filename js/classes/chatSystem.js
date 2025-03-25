@@ -11,8 +11,8 @@ class ChatSystem {
     }
 
     async sendPrompt(prompt) {
-        console.log("userAPICalls", window.userAPICalls);
-        if (window.userAPICalls === 0) {
+        console.log("userAPICalls", userAPICalls);
+        if (userAPICalls === 0) {
             this.#playChat(Sprite.emotions.angry, ERROR_CHAT, audio.chatbotError, 1.6);
             window.alert(NO_API_LEFT);
             return;
@@ -37,11 +37,11 @@ class ChatSystem {
             if (!audio) audio = this.#audioManager.getRandomStockAudio();
 
             this.#sprite.toggleThink(false);
-            console.log("userAPICalls before:", window.userAPICalls);
+            console.log("userAPICalls before:", userAPICalls);
             this.#playChat(emotion, text, audio);
             window.userAPICalls -= 1;
-            console.log("userAPICalls-1:", window.userAPICalls);
-            document.getElementById("apiLeft").innerText = API_LEFT + window.userAPICalls;
+            console.log("userAPICalls-1:", userAPICalls);
+            document.getElementById("apiLeft").innerText = API_LEFT + userAPICalls;
 
         } catch (e) {
             this.#sprite.toggleThink(false);

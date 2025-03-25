@@ -1,4 +1,4 @@
-
+var userAPICalls;
 
 Utils.populatePlaceholderById({
     "input-text": INPUT,
@@ -12,8 +12,8 @@ Utils.populateById({
 });
 
 userData.then(data => {
-    window.userDataInfo = data.api_calls_left;
-    console.log("cant", window.userDataInfo);
+    userAPICalls = data.api_calls_left;
+    console.log("cant", userAPICalls);
     if (data.role === "admin") {
         document.getElementById("admin").style.display = "block";
         Utils.populateById({
