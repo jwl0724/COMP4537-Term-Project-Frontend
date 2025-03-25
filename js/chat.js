@@ -17,13 +17,16 @@ userData.then(data => {
     if (data.role === "admin") {
         document.getElementById("admin").style.display = "block";
         Utils.populateById({
-            admin: ADMIN,
-            apiLeft: API_LEFT + (data.api_calls_left === -1 ? "∞" : data.api_calls_left)
+            admin: ADMIN            
         });
     }
 
     else if (data.role === "user") document.getElementById("admin").style.display = "none";
     else window.location.href = "/login.html";
+
+    Utils.populateById({
+        apiLeft: API_LEFT + (data.api_calls_left === -1 ? "∞" : data.api_calls_left)
+    });
 
 })
 
