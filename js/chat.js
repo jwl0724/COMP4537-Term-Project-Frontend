@@ -1,4 +1,4 @@
-var userAPICalls;
+export let userAPICalls;
 
 Utils.populatePlaceholderById({
     "input-text": INPUT,

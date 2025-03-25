@@ -1,3 +1,5 @@
+import { userAPICalls } from "./chat.js";
+
 class ChatSystem {
 
     #sprite;
