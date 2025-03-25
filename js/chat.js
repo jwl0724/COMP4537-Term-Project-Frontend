@@ -34,7 +34,11 @@ const chat = new ChatSystem();
 const sendButton = document.getElementById("submit");
 sendButton.onclick = () => {
     if (document.getElementById("input-text").value !== "") {
-        chat.sendPrompt(document.getElementById("input-text").value);
+        sendButton.disabled = true;
+        chat.sendPrompt(document.getElementById("input-text").value)
+        .finally(() => {
+            sendButton.disabled = false;
+        });
         document.getElementById("input-text").value = "";
     }
 };
