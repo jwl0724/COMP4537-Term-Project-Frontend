@@ -13,7 +13,7 @@ Utils.populateById({
 
 userData.then(data => {
     window.userDataInfo = data.api_calls_left;
-    console.log("cant", userDataInfo);
+    console.log("cant", window.userDataInfo);
     if (data.role === "admin") {
         document.getElementById("admin").style.display = "block";
         Utils.populateById({
