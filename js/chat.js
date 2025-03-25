@@ -1,3 +1,5 @@
+let userAPICalls;
+
 Utils.populatePlaceholderById({
     "input-text": INPUT,
 });
@@ -10,11 +12,12 @@ Utils.populateById({
 });
 
 userData.then(data => {
+    userDataInfo = data.api_calls_left;
     if (data.role === "admin") {
         document.getElementById("admin").style.display = "block";
         Utils.populateById({
             admin: ADMIN,
-            apiLeft: API_LEFT + data.api_calls_left ? -1 : "∞",
+            apiLeft: data.api_calls_left === -1 ? "∞" : data.api_calls_left
         });
     }
 

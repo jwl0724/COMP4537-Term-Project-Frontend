@@ -11,6 +11,10 @@ class ChatSystem {
     }
 
     async sendPrompt(prompt) {
+        if (userAPICalls === 0) {
+            this.#playChat(Sprite.emotions.angry, ERROR_CHAT, audio.chatbotError, 1.6);
+            return;
+        }
         this.#textManager.addMessage(prompt, TextManager.textType.prompt);
         this.#sprite.toggleThink(true);
         try {
@@ -32,6 +36,8 @@ class ChatSystem {
 
             this.#sprite.toggleThink(false);
             this.#playChat(emotion, text, audio);
+            userAPICalls -= 1;
+            document.getElementById("apiLeft").innerText = API_LEFT + userAPICalls;
 
         } catch (e) {
             this.#sprite.toggleThink(false);
