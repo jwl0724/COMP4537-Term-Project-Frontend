@@ -11,9 +11,10 @@ class ChatSystem {
     }
 
     async sendPrompt(prompt) {
-        console.log("userAPICalls", userAPICalls);
-        if (userAPICalls === 0) {
+        console.log("userAPICalls", window.userAPICalls);
+        if (window.userAPICalls === 0) {
             this.#playChat(Sprite.emotions.angry, ERROR_CHAT, audio.chatbotError, 1.6);
+            window.alert(NO_API_LEFT);
             return;
         }
         this.#textManager.addMessage(prompt, TextManager.textType.prompt);
@@ -37,8 +38,8 @@ class ChatSystem {
 
             this.#sprite.toggleThink(false);
             this.#playChat(emotion, text, audio);
-            userAPICalls -= 1;
-            document.getElementById("apiLeft").innerText = API_LEFT + userAPICalls;
+            window.userAPICalls -= 1;
+            document.getElementById("apiLeft").innerText = API_LEFT + window.userAPICalls;
 
         } catch (e) {
             this.#sprite.toggleThink(false);
