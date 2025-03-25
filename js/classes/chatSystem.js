@@ -11,6 +11,7 @@ class ChatSystem {
     }
 
     async sendPrompt(prompt) {
+        console.log("userAPICalls", userAPICalls);
         if (userAPICalls === 0) {
             this.#playChat(Sprite.emotions.angry, ERROR_CHAT, audio.chatbotError, 1.6);
             return;
