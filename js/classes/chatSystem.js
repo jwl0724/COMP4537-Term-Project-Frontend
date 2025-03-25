@@ -1,4 +1,4 @@
-import { userAPICalls } from "./chat.js";
+
 
 class ChatSystem {
 
@@ -13,8 +13,8 @@ class ChatSystem {
     }
 
     async sendPrompt(prompt) {
-        console.log("userAPICalls", userAPICalls);
-        if (userAPICalls === 0) {
+        console.log("userAPICalls in chatsystem", window.userAPICalls);
+        if (window.userAPICalls === 0) {
             this.#playChat(Sprite.emotions.angry, ERROR_CHAT, audio.chatbotError, 1.6);
             window.alert(NO_API_LEFT);
             return;
@@ -41,9 +41,9 @@ class ChatSystem {
             this.#sprite.toggleThink(false);
 
             this.#playChat(emotion, text, audio);
-            if(userAPICalls !== -1){
+            if (window.userAPICalls !== -1) {
                 window.userAPICalls -= 1;
-                document.getElementById("apiLeft").innerText = API_LEFT + userAPICalls;
+                document.getElementById("apiLeft").innerText = API_LEFT + window.userAPICalls;
             }
 
 
