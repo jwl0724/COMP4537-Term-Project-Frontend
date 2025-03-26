@@ -74,7 +74,7 @@ class HandleTable {
         const newApiValue = apiInput.value;  
 
         try{
-            const response = await APIHub.updateUser(email, { api_calls_left: newApiValue });
+            const response = await APIHub.updateApiCalls(email, { api_calls_left: newApiValue });
             if(response){
                         const apiCell = rowElement.querySelector('.api_calls_left');
                         apiCell.innerHTML = newApiValue; 
