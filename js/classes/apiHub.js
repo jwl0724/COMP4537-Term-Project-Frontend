@@ -118,4 +118,51 @@ class APIHub {
         if (response.status === 403) return null;
         else return await response.json();
     }
+
+    static async getApiStats() {
+        const endpoint = this.#backendEP + routes.getApiStats;
+
+        const response = await fetch(endpoint, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (response.status === 403) return null;
+        else return await response.json();
+    }
+
+    static async updateApiCalls(email, number) {
+        const endpoint = this.#backendEP + routes.updateApiCalls;
+
+        const response = await fetch(endpoint, {
+            method: "PUT",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                "api_calls_left": number
+            })
+        });
+        return await response.json();
+    }
+
+    static async deleteUser(email) {
+        const endpoint = this.#backendEP + routes.deleteUser;
+
+        const response = await fetch(endpoint, {
+            method: "DELETE",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email
+            })
+        });
+        return await response.json();
+    }
 }
