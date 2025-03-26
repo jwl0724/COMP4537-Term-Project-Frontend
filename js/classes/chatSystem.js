@@ -13,7 +13,6 @@ class ChatSystem {
     }
 
     async sendPrompt(prompt) {
-        console.log("userAPICalls in chatsystem", window.userAPICalls);
         if (window.userAPICalls === 0) {
             this.#playChat(Sprite.emotions.angry, ERROR_CHAT, audio.chatbotError, 1.6);
             window.alert(NO_API_LEFT);

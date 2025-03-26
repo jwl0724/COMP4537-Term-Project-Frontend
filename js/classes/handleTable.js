@@ -23,7 +23,6 @@ class HandleTable {
                 insertContent += `<td class='px-6 py-4 ${header}'>${row[header]}</td>`;
             }
             if (add_edit && row["role"] !== "admin") {
-                console.log(row["email"]);
                 insertContent += `<td class='px-6 py-4 flex justify-between' id='${row[1]}'>
                 <button class='text-blue-700 edit-button' onClick="UserHandler.editUser('${row["email"]}')">${EDIT_BUTTON_TEXT}</button>
                 <button class='text-blue-700 save-button hidden' onClick="UserHandler.saveUser('${row["email"]}')">${SAVE_BUTTON_TEXT}</button>
