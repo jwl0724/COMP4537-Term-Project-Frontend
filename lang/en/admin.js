@@ -6,3 +6,4 @@ const SUCCESS_UPDATE_WINDOW = "API calls updated!";
 const FAILED_UPDATE_WINDOW = "Failed to update API calls!";
 const SUCCESS_DELETE_WINDOW = "User deleted!";
 const FAILED_DELETE_WINDOW = "Failed to delete user!";
+const FORBIDDEN_UPDATE_WITH_NEGATIVE_API = "You can't have negative API calls!";
