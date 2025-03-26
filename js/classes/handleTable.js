@@ -20,7 +20,7 @@ class HandleTable {
             insertContent += `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" id='${row["email"]}'>`;
 
             for (const header of headerList) {
-                if (header === "api_call_lefts" && row[header] === -1) {
+                if (header === "api_calls_left" && row[header] === -1) {
                     row[header] = "∞";
                 }
                 insertContent += `<td class='px-6 py-4 ${header}'>${row[header]}</td>`;
