@@ -20,12 +20,13 @@ class HandleTable {
             insertContent += `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" id='${row["email"]}'>`;
 
             for (const header of headerList) {
+                let insertValue = row[header];
                 if (header === "api_calls_left" && row[header] === -1) {
-                    insertContent += `<td class='px-6 py-4 ${header}'>∞</td>`;
+                    insertValue = "∞";
                 }
                 if (header === "role" && add_edit) {
                     // Create a dropdown to toggle user/admin role
-                    insertContent += `
+                    insertValue += `
                     <td class='px-6 py-4'>
                         <select class="role-dropdown border border-gray-300 rounded p-1" 
                                 onchange="UserHandler.toggleRole('${row["email"]}', this.value)">
@@ -33,10 +34,10 @@ class HandleTable {
                             <option value="admin" ${row[header] === 'admin' ? 'selected' : ''}>Admin</option>
                         </select>
                     </td>`;
-                }else{
-                    insertContent += `<td class='px-6 py-4 ${header}'>${row[header]}</td>`;
-
                 }
+                insertContent += `<td class='px-6 py-4 ${header}'>${insertValue}</td>`;
+
+
             }
             if (add_edit && row["role"] !== "admin") {
                 insertContent += `<td class='px-6 py-4 flex justify-between' id='${row[1]}'>
