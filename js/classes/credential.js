@@ -26,13 +26,10 @@ class Credentials {
             this.#errorField.innerText = ERROR_CREDENTIAL_MISSING;
             return;
         }
-
-        let data;
         try {
-            data = await APIHub.login(email, password);
-            localStorage.setItem("role", data.role);
+            const data = await APIHub.login(email, password);
             if (data.error) this.#errorField.innerText = data.error;
-            else window.location.href = "/chat.html";  //need to change later??
+            else window.location.href = "/chat.html";
 
         } catch (e) {
             this.#errorField.innerText = ERROR_SERVER;
@@ -48,12 +45,10 @@ class Credentials {
             this.#errorField.innerText = ERROR_CREDENTIAL_MISSING;
             return;
         }
-
         if (password !== confirmation) {
             this.#errorField.innerText = ERROR_PASSWORD_MISMATCH;
             return;
         }
-
         let data;
         try {
             data = await APIHub.register(email, password);

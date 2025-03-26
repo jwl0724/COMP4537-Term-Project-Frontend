@@ -1,3 +1,5 @@
+
+
 class ChatSystem {
 
     #sprite;
@@ -11,27 +13,41 @@ class ChatSystem {
     }
 
     async sendPrompt(prompt) {
+        if (window.userAPICalls === 0) {
+            this.#playChat(Sprite.emotions.angry, ERROR_CHAT, audio.chatbotError, 1.6);
+            window.alert(NO_API_LEFT);
+            return;
+        }
         this.#textManager.addMessage(prompt, TextManager.textType.prompt);
+        this.#sprite.toggleThink(true);
         try {
             const hubResponse = await APIHub.chat(prompt);
             const status = hubResponse.status;
             const response = hubResponse.data;
 
-            if(this.#playError(status, response)) return;
+            if (this.#playError(status, response)) return;
 
             let emotion = response.emotion;
             const text = response.text;
+            let audio = response.audioUrl;
 
             emotion = Object.values(Sprite.emotions).includes(emotion)
-            ? emotion
-            : Sprite.emotions.neutral;
+                ? emotion
+                : Sprite.emotions.neutral;
 
-            // this.#audioManager.playSpeech(response.audio);   // Need to add audio to the response object later
-            this.#sprite.emote(emotion);
-            this.#textManager.addMessage(text, TextManager.textType.response);
+            if (!audio) audio = this.#audioManager.getRandomStockAudio();
+
+            this.#sprite.toggleThink(false);
+
+            this.#playChat(emotion, text, audio);
+            if (window.userAPICalls !== -1) {
+                window.userAPICalls -= 1;
+                document.getElementById("apiLeft").innerText = API_LEFT + window.userAPICalls;
+            }
 
 
         } catch (e) {
+            this.#sprite.toggleThink(false);
             this.#playChat(Sprite.emotions.mock, ERROR_SERVER, audio.serverError, 1.6);
         }
     }
@@ -47,9 +63,13 @@ class ChatSystem {
     }
 
     #playChat(emotion, text, audio = null, audioOffset = 0) {
-        this.#sprite.emote(emotion);
-        this.#audioManager.playSpeech(audio);
-        if (audio) this.#textManager.addMessage(text, TextManager.textType.response, this.#audioManager, audioOffset);
-        else this.#textManager.addMessage(text, TextManager.textType.response);
+        setTimeout(() => {
+            this.#sprite.emote(emotion);
+            this.#audioManager.playSpeech(audio);
+
+            if (audio) this.#textManager.addMessage(text, TextManager.textType.response, this.#audioManager, audioOffset);
+            else this.#textManager.addMessage(text, TextManager.textType.response);
+
+        }, Sprite.thinkTransitionTimeSeconds * 1000);
     }
 }
