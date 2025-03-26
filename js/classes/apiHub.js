@@ -135,6 +135,7 @@ class APIHub {
 
     static async updateApiCalls(email, number) {
         const endpoint = this.#backendEP + routes.updateApiCalls;
+        const intNumber = parseInt(number, 10);
 
         const response = await fetch(endpoint, {
             method: "PUT",
@@ -144,7 +145,7 @@ class APIHub {
             },
             body: JSON.stringify({
                 email: email,
-                "api_calls_left": number
+                "api_calls_left": intNumber
             })
         });
         return await response.json();
