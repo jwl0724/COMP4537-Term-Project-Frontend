@@ -28,7 +28,7 @@ class HandleTable {
                     insertContent += `
                     <td class='px-6 py-4'>
                         <select class="role-dropdown border border-gray-300 rounded p-1" 
-                                onchange="HandleTable.toggleRole('${row["email"]}', this.value)">
+                                onchange="UserHandler.toggleRole('${row["email"]}', this.value)">
                             <option value="user" ${row[header] === 'user' ? 'selected' : ''}>User</option>
                             <option value="admin" ${row[header] === 'admin' ? 'selected' : ''}>Admin</option>
                         </select>

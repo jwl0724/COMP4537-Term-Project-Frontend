@@ -17,4 +17,5 @@ const routes = Object.freeze({
     getApiStats: apiVersion + "/endpoint-stats",
     updateApiCalls: apiVersion + "/update-api-calls",
     deleteUser: apiVersion + "/delete-user",
+    updateRole: apiVersion + "/update-role",
 });
