@@ -12,7 +12,7 @@ const routes = Object.freeze({
     user: "/me",
     forgotPassword: "/forgot-password",
     getAllUsers: "/get-all-users",
-    getApiStats: "/api-stats",
+    getApiStats: "/endpoint-stats",
     updateApiCalls: "/update-api-calls",
     deleteUser: "/delete-user",
 });
