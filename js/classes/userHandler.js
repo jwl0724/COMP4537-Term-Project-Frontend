@@ -35,6 +35,10 @@ class UserHandler {
     const rowElement = document.getElementById(email);
     const apiInput = rowElement.querySelector('.api-input');
     const newApiValue = apiInput.value;
+    if (newApiValue < 0) {
+      alert(FORBIDDEN_UPDATE_WITH_NEGATIVE_API);
+      return;
+    }
 
     try {
       const response = await APIHub.updateApiCalls(email, newApiValue);
