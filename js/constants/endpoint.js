@@ -1,6 +1,6 @@
 const endpoints = Object.freeze({
-    backend: "https://term-project-metdh.ondigitalocean.app", // Local testing, need to change when hosted
-    STT: "ep here"
+    remoteBackend: "https://term-project-metdh.ondigitalocean.app",
+    localBackend: "http://localhost:8000",
 });
 
 const routes = Object.freeze({
@@ -9,6 +9,10 @@ const routes = Object.freeze({
     logout: "/logout",
     reset: "/reset",
     chat: "/chat",
+    user: "/me",
     forgotPassword: "/forgot-password",
-    getAllUsers: "/get-all-users"
+    getAllUsers: "/get-all-users",
+    getApiStats: "/endpoint-stats",
+    updateApiCalls: "/update-api-calls",
+    deleteUser: "/delete-user",
 });

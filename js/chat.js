@@ -1,32 +1,55 @@
-Utils.populateById({
-    "history-box-label": HISTORY_BOX_LABEL,
-    submit: SUBMIT
-});
+window.userAPICalls = null;
 
 Utils.populatePlaceholderById({
-    "input-text": INPUT
+    "input-text": INPUT,
 });
 
-const userRole = localStorage.getItem('role');
+Utils.populateById({
+    "history-box-label": HISTORY_BOX_LABEL,
+    submit: SUBMIT,
+    logout: LOGOUT,
+    chat: CHAT,
+});
 
-window.onload = () => {
-    if (userRole === 'admin') {
-        document.getElementById('admin').style.display = 'block';
-    } else if (userRole === 'user') {
-        document.getElementById('admin').style.display = 'none';
-    } else {
-        window.location.href = '/login.html';
+userData.then(data => {
+    window.userAPICalls = data.api_calls_left;
+    if (data.role === "admin") {
+        document.getElementById("admin").style.display = "block";
+        Utils.populateById({
+            admin: ADMIN            
+        });
     }
-};
+
+    else if (data.role === "user") document.getElementById("admin").style.display = "none";
+    else window.location.href = "/login.html";
+
+    Utils.populateById({
+        apiLeft: API_LEFT + (data.api_calls_left === -1 ? "∞" : data.api_calls_left)
+    });
+
+})
 
 const chat = new ChatSystem();
-document.getElementById("submit").onclick = () => {
+const sendButton = document.getElementById("submit");
+sendButton.onclick = () => {
     if (document.getElementById("input-text").value !== "") {
-        chat.sendPrompt(document.getElementById("input-text").value);
+        sendButton.disabled = true;
+        chat.sendPrompt(document.getElementById("input-text").value)
+        .finally(() => {
+            setTimeout(() => {
+                sendButton.disabled = false;
+            }, 5000);
+        });
         document.getElementById("input-text").value = "";
     }
 };
 
-document.getElementById("logout").innerText = LOGOUT;
-document.getElementById("chat").innerText = CHAT;
-document.getElementById("admin").innerText = ADMIN;
+document.getElementById("input-text").addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        sendButton.click();
+    }
+}
+
+);
+

@@ -13,4 +13,5 @@ Utils.populateById({
     admin: ADMIN
 });
 
-HandleUser.renderUserTable();
+HandleTable.renderUserTable();
+HandleTable.renderApiTable();
