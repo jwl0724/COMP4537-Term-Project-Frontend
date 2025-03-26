@@ -11,5 +11,8 @@ const routes = Object.freeze({
     chat: "/chat",
     user: "/me",
     forgotPassword: "/forgot-password",
-    getAllUsers: "/get-all-users"
+    getAllUsers: "/get-all-users",
+    getApiStats: "/api-stats",
+    updateApiCalls: "/update-api-calls",
+    deleteUser: "/delete-user",
 });
