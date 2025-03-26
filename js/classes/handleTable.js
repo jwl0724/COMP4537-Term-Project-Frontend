@@ -27,13 +27,11 @@ class HandleTable {
                 if (header === "role" && add_edit) {
                     // Create a dropdown to toggle user/admin role
                     insertValue += `
-                    <td class='px-6 py-4'>
                         <select class="role-dropdown border border-gray-300 rounded p-1" 
                                 onchange="UserHandler.toggleRole('${row["email"]}', this.value)">
                             <option value="user" ${row[header] === 'user' ? 'selected' : ''}>User</option>
                             <option value="admin" ${row[header] === 'admin' ? 'selected' : ''}>Admin</option>
-                        </select>
-                    </td>`;
+                        </select>`;
                 }
                 insertContent += `<td class='px-6 py-4 ${header}'>${insertValue}</td>`;
 
