@@ -1,9 +1,8 @@
+// Define constants for the forgotPassword page
 const TITLE = "Forgot Password";
+const SUBMIT = "Send Password Reset Link";
+const LOGIN_REDIRECT = "login.html";
 const PROMPT = "Enter your email to reset your password";
-const LOGIN_REDIRECT = "Remembered your password? Log in";
-const SENDING = "Sending...";
-const SUBMIT = "Send Reset Link";
-const CONFIRM = "A password reset link has been sent to your email";
-const ERROR_SERVER = "Something went wrong. Please try again.";
-const ERROR_MISSING_EMAIL = "Please enter your email address";
-const ERROR_NETWORK = "Network error. Please try again later.";
+const ERROR_MISSING_EMAIL = "Please enter your email address.";
+const ERROR_SERVER = "Server error, please try again.";
+const CONFIRM = "A reset link has been sent to your email.";
