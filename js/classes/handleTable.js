@@ -26,7 +26,7 @@ class HandleTable {
                 }
                 if (header === "role" && add_edit) {
                     // Create a dropdown to toggle user/admin role
-                    insertValue += `
+                    insertValue = `
                         <select class="role-dropdown border border-gray-300 rounded p-1" 
                                 onchange="UserHandler.toggleRole('${row["email"]}', this.value)">
                             <option value="user" ${row[header] === 'user' ? 'selected' : ''}>User</option>
