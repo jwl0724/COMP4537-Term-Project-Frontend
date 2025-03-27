@@ -20,7 +20,22 @@ class HandleTable {
             insertContent += `<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200" id='${row["email"]}'>`;
 
             for (const header of headerList) {
-                insertContent += `<td class='px-6 py-4 ${header}'>${row[header]}</td>`;
+                let insertValue = row[header];
+                if (header === "api_calls_left" && row[header] === -1) {
+                    insertValue = "∞";
+                }
+                if (header === "role" && add_edit) {
+                    // Create a dropdown to toggle user/admin role
+                    insertValue = `
+                        <select class="role-dropdown border border-gray-300 rounded p-1" 
+                                onchange="UserHandler.toggleRole('${row["email"]}', this.value)">
+                            <option value="user" ${row[header] === 'user' ? 'selected' : ''}>User</option>
+                            <option value="admin" ${row[header] === 'admin' ? 'selected' : ''}>Admin</option>
+                        </select>`;
+                }
+                insertContent += `<td class='px-6 py-4 ${header}'>${insertValue}</td>`;
+
+
             }
             if (add_edit && row["role"] !== "admin") {
                 insertContent += `<td class='px-6 py-4 flex justify-between' id='${row[1]}'>
@@ -35,7 +50,7 @@ class HandleTable {
         table.innerHTML = insertContent;
     }
 
-    
+
 
     static async renderUserTable() {
         const data = await APIHub.getAllUsers();

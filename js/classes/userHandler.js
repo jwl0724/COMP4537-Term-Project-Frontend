@@ -1,4 +1,17 @@
 class UserHandler {
+  static async toggleRole(email, newRole) {
+    try {
+      const response = await APIHub.updateRole(email, newRole);
+      if (response) {
+        alert(SUCCESS_UPDATE_ROLE_WINDOW);
+      } else {
+        alert(FAILED_UPDATE_ROLE_WINDOW);
+      }
+    } catch (error) {
+      alert(FAILED_UPDATE_WINDOW);
+    }
+  }
+
   static async deleteUser(email) {
     const rowElement = document.getElementById(email);
     if (rowElement) {
@@ -50,12 +63,12 @@ class UserHandler {
         const saveButton = rowElement.querySelector(`.save-button`);
         editButton.classList.remove('hidden');
         saveButton.classList.add('hidden');
-        alert(SUCCESS_UPDATE_WINDOW);
+        alert(SUCCESS_UPDATE_API_WINDOW);
       } else {
-        alert(FAILED_UPDATE_WINDOW);
+        alert(FAILED_UPDATE_API_WINDOW);
       }
     } catch (error) {
-      alert(FAILED_UPDATE_WINDOW);
+      alert(FAILED_UPDATE_API_WINDOW);
     }
 
 

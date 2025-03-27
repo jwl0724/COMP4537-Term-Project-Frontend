@@ -166,4 +166,19 @@ class APIHub {
         });
         return await response.json();
     }
+    static async updateRole(email, role) {
+        const endpoint = this.#backendEP + routes.updateRole;
+        const response = await fetch(endpoint, {
+            method: "PUT",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                role: role
+            })
+        });
+        return await response.json();
+    }
 }
