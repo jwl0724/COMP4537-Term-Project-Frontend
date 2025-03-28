@@ -1,4 +1,4 @@
-class APIHub {
+export class APIHub {
 
     static #backendEP = window.location.protocol.includes("https") ? endpoints.remoteBackend : endpoints.localBackend;
 
@@ -167,3 +167,5 @@ class APIHub {
         return await response.json();
     }
 }
+
+
