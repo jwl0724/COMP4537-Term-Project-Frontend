@@ -1,8 +1,10 @@
 const TITLE = "Create a New Account";
 const SUBMIT = "Sign Up";
+const USERNAME_LABEL = "Username";
 const EMAIL_LABEL = "Email";
 const PASSWORD_LABEL = "Password";
 const CONFIRMATION_LABEL = "Enter Your Password Again";
+const USERNAME = "Enter username";
 const EMAIL = "Enter email";
 const PASSWORD = "Enter password";
 const CONFIRMATION = "Confirm password";
