@@ -18,7 +18,7 @@ class APIHub {
         return await response.json();
     }
 
-    static async register(email, password) {
+    static async register(username, email, password) {
         const endpoint = this.#backendEP + routes.signup;
         const response = await fetch(endpoint, {
             method: "POST",
@@ -27,6 +27,7 @@ class APIHub {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                'user_name': username,
                 email: email,
                 password: password
             })
@@ -36,7 +37,13 @@ class APIHub {
 
     static async logout() {
         const endpoint = this.#backendEP + routes.logout;
-        const response = await fetch(endpoint);
+        const response = await fetch(endpoint, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
         if (response.ok) window.location.href = "/";
     }
 

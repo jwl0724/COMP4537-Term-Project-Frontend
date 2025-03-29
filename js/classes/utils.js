@@ -21,4 +21,13 @@ class Utils {
         button.textContent = text;
         button.disabled = disable;
     }
+
+    static async logout() {
+        try {
+            await APIHub.logout();
+        } catch (e) {
+            alert(LOGOUT_ERROR);
+        }
+    }
+
 }
