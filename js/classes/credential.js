@@ -1,11 +1,13 @@
 class Credentials {
 
+    #usernameField;
     #errorField;
     #emailField;
     #passwordField;
     #confirmPasswordField;
 
     constructor() {
+        this.#usernameField = document.getElementById("username");
         this.#emailField = document.getElementById("email");
         this.#passwordField = document.getElementById("password");
         this.#confirmPasswordField = document.getElementById("confirmation");
@@ -37,11 +39,12 @@ class Credentials {
     }
 
     async #register() {
+        const username = this.#usernameField.value;
         const email = this.#emailField.value;
         const password = this.#passwordField.value;
         const confirmation = this.#confirmPasswordField.value;
 
-        if (!email || !password || !confirmation) {
+        if (!username || !email || !password || !confirmation) {
             this.#errorField.innerText = ERROR_CREDENTIAL_MISSING;
             return;
         }
@@ -51,7 +54,7 @@ class Credentials {
         }
         let data;
         try {
-            data = await APIHub.register(email, password);
+            data = await APIHub.register(username, email, password);
             localStorage.setItem("role", data.role);
 
             if (data.error) this.#errorField.innerText = data.error;
@@ -62,4 +65,6 @@ class Credentials {
             this.#errorField.innerText = ERROR_SERVER;
         }
     }
+
+
 }

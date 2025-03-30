@@ -24,6 +24,7 @@ userData.then(data => {
     else window.location.href = "/login.html";
 
     Utils.populateById({
+        'welcome-message': WELCOME_MESSAGE + data.user_name,
         apiLeft: API_LEFT + (data.api_calls_left === -1 ? "∞" : data.api_calls_left)
     });
 
