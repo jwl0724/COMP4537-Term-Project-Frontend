@@ -35,7 +35,6 @@ class HandleTable {
                 }
                 insertContent += `<td class='px-6 py-4 ${header}'>${insertValue}</td>`;
 
-
             }
             if (add_edit && row["role"] !== "admin") {
                 insertContent += `<td class='px-6 py-4 flex justify-between' id='${row[1]}'>
@@ -50,17 +49,17 @@ class HandleTable {
         table.innerHTML = insertContent;
     }
 
-
-
     static async renderUserTable() {
         const data = await APIHub.getAllUsers();
         HandleTable.createTable('user-table', data, true);
     }
-
     static async renderApiTable() {
         const data = await APIHub.getApiStats();
         HandleTable.createTable('api-table', data);
     }
 
-
+    static async renderEndpointTable() {
+        const data = await APIHub.getEndpointStats();
+        HandleTable.createTable('endpoint-table', data);
+    }
 }

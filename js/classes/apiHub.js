@@ -141,6 +141,21 @@ class APIHub {
         else return await response.json();
     }
 
+
+    static async getEndpointStats() {
+        const endpoint = this.#backendEP + routes.getEndpointStats;
+
+        const response = await fetch(endpoint, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (response.status === 403) return null;
+        else return await response.json();
+    }
+
     static async updateApiCalls(email, number) {
         const endpoint = this.#backendEP + routes.updateApiCalls;
         const intNumber = parseInt(number, 10);
