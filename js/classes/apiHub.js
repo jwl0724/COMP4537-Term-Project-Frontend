@@ -81,7 +81,7 @@ class APIHub {
     }
 
     // TODO: See if this is needed for after reset link was clicked
-    static async reset(email) {
+    static async reset(token, newPassword) {
         const endpoint = this.#backendEP + routes.reset;
         const response = await fetch(endpoint, {
             method: "POST",
@@ -89,7 +89,8 @@ class APIHub {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                email: email
+                token: token,
+                new_password: newPassword
             })
         });
         return await response.json();

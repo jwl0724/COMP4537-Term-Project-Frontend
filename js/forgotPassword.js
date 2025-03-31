@@ -25,8 +25,8 @@ form.addEventListener("submit", async (e) => {
     Utils.setButtonState(submitButton, SENDING, true);
     try {
         const data = await APIHub.forgotPassword(email);
-        if (!data.error) Utils.populateResponseMessage(errorMessage, ERROR_SERVER, style.redText, style.greenText);
-        else Utils.populateResponseMessage(errorMessage, CONFIRM, style.greenText, style.redText);
+        if (!data.error) Utils.populateResponseMessage(errorMessage, CONFIRM, style.greenText, style.redText);
+        else Utils.populateResponseMessage(errorMessage, ERROR_SERVER, style.redText, style.greenText);
 
     } catch(error) {
         Utils.populateResponseMessage(errorMessage, ERROR_NETWORK, style.redText, style.greenText)
