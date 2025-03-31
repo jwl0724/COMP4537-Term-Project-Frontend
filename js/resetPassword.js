@@ -5,15 +5,16 @@ Utils.populateById({
   "confirm-password-label": PASSWORD_CONFIRM_LABEL,
 });
 
-const form = document.getElementById("reset-password");
-const passwordInput = document.getElementById("password");
-const confirmPasswordInput = document.getElementById("confirm-password");
+const form = document.getElementById("reset-password"); 
+const errorMessage = document.getElementById("error-message");
+const submitButton = document.getElementById("submit");
 
 
 form.addEventListener("submit", async (e) => {
+  const passwordInput = document.getElementById("password").value;
+  const confirmPasswordInput = document.getElementById("confirm-password").value;
+
   e.preventDefault();
-  const password = passwordInput.value;
-  const confirmPassword = confirmPasswordInput.value;
 
   const urlParams = new URLSearchParams(window.location.search);
   const token = urlParams.get("token");
