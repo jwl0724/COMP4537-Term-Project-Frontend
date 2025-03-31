@@ -16,7 +16,6 @@ class HandleTable {
         // Loop through each header and add it to the table header
         for (const header of headerList) {
             insertContent += `<th scope="col" class="px-6 py-3">${header}</th>`;
-
         }
 
         // If edit buttons are to be added, create an extra column for controls
@@ -60,7 +59,6 @@ class HandleTable {
         table.innerHTML = insertContent;
     }
 
-
     // Static method to render a table with user data
     static async renderUserTable() {
         const data = await APIHub.getAllUsers();
@@ -71,7 +69,7 @@ class HandleTable {
         const data = await APIHub.getApiStats();
         HandleTable.createTable('api-table', data);
     }
-
+    // Static method to render a table with Endpoint usage statistics
     static async renderEndpointTable() {
         const data = await APIHub.getEndpointStats();
         HandleTable.createTable('endpoint-table', data);
