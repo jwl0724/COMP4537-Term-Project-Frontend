@@ -11,15 +11,18 @@ const submitButton = document.getElementById("submit");
 
 
 form.addEventListener("submit", async (e) => {
-  const passwordInput = document.getElementById("password").value;
-  const confirmPasswordInput = document.getElementById("confirm-password").value;
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("confirm-password");
+
+  const password = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
 
   e.preventDefault();
 
   const urlParams = new URLSearchParams(window.location.search);
   const token = urlParams.get("token");
 
-  if (passwordInput !== confirmPasswordInput) {
+  if (password !== confirmPassword) {
     Utils.populateResponseMessage(errorMessage, ERROR_PASSWORD_MISMATCH, style.redText, style.greenText);
     return;
   }
