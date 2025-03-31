@@ -2,7 +2,7 @@ Utils.populateById({
   title: TITLE,
   submit: SUBMIT,
   "password-label": PASSWORD_LABEL,
-  "confirmPassword-label": PASSWORD_CONFIRM_LABEL,
+  "confirm-password-label": PASSWORD_CONFIRM_LABEL,
 });
 
 const form = document.getElementById("reset-password");
