@@ -1,7 +1,10 @@
 class APIHub {
 
+
+    // Determine the backend endpoint based on the protocol (https or not)
     static #backendEP = window.location.protocol.includes("https") ? endpoints.remoteBackend : endpoints.localBackend;
 
+    // Method to log in a user with email and password
     static async login(email, password) {
         const endpoint = this.#backendEP + routes.login;
         const response = await fetch(endpoint, {
@@ -18,6 +21,7 @@ class APIHub {
         return await response.json();
     }
 
+    // Method to register a new user with username, email, and password
     static async register(username, email, password) {
         const endpoint = this.#backendEP + routes.signup;
         const response = await fetch(endpoint, {
@@ -35,6 +39,7 @@ class APIHub {
         return await response.json();
     }
 
+    
     static async logout() {
         const endpoint = this.#backendEP + routes.logout;
         const response = await fetch(endpoint, {

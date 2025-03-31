@@ -10,7 +10,3 @@ document.addEventListener("click", () => music.play());
 document.getElementById("spongebob").src = images.happy;
 
 
-
-
-
-// TODO: Add muting and unmuting later

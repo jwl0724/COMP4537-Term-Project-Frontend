@@ -15,6 +15,7 @@ class Credentials {
 
         document.getElementById("submit").addEventListener("click", (e) => {
             e.preventDefault();
+            // If confirm password field exists, it's a registration attempt, otherwise login
             if (this.#confirmPasswordField) this.#register();
             else this.#login();
         });
@@ -30,7 +31,7 @@ class Credentials {
         }
         try {
             const data = await APIHub.login(email, password);
-            if (data.error) this.#errorField.innerText = data.error;
+            if (data.error) this.#errorField.innerText = data.error;// If login fails, show error
             else window.location.href = "/chat.html";
 
         } catch (e) {
@@ -48,6 +49,8 @@ class Credentials {
             this.#errorField.innerText = ERROR_CREDENTIAL_MISSING;
             return;
         }
+
+        // Check if password and confirmation match
         if (password !== confirmation) {
             this.#errorField.innerText = ERROR_PASSWORD_MISMATCH;
             return;
