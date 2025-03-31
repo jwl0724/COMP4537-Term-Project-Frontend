@@ -19,8 +19,13 @@ form.addEventListener("submit", async (e) => {
   const urlParams = new URLSearchParams(window.location.search);
   const token = urlParams.get("token");
 
-  if (password !== confirmPassword) {
-    Utils.populateResponseMessage(errorMessage, ERROR_PASSWORD_MISMATCH);
+  if (passwordInput !== confirmPasswordInput) {
+    Utils.populateResponseMessage(errorMessage, ERROR_PASSWORD_MISMATCH, style.redText, style.greenText);
+    return;
+  }
+
+  if (!token) {
+    Utils.populateResponseMessage(errorMessage, INVALID_TOKEN, style.redText, style.greenText);
     return;
   }
 
