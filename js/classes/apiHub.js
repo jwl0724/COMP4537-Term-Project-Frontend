@@ -90,7 +90,7 @@ class APIHub {
             },
             body: JSON.stringify({
                 token: token,
-                new_password: newPassword
+                newPassword: newPassword
             })
         });
         return await response.json();
