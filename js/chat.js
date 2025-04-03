@@ -1,5 +1,11 @@
 // This code was assisted by ChatGPT, OpenAI.
 // Initialize a variable to store the user's remaining API calls
+const userRole = localStorage.getItem('role');
+
+if (userRole !== 'admin') {
+    window.location.href = '/index.html';
+}
+
 window.userAPICalls = null;
 
 Utils.populatePlaceholderById({
@@ -12,6 +18,8 @@ Utils.populateById({
     logout: LOGOUT,
     chat: CHAT,
 });
+
+
 
 // Fetch user data 
 userData.then(data => {

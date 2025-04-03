@@ -9,3 +9,4 @@ const FAILED_UPDATE_ROLE_WINDOW = "Failed to update user role!";
 const SUCCESS_DELETE_WINDOW = "User deleted!";
 const FAILED_DELETE_WINDOW = "Failed to delete user!";
 const FORBIDDEN_UPDATE_WITH_NEGATIVE_API = "You can't have negative API calls!";
+const NOT_AUTHORIZED = "You are not authorized to access this page!";

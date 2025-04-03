@@ -1,5 +1,10 @@
 const userRole = localStorage.getItem('role');
 
+if(userRole !== 'admin') {
+    alert(NOT_AUTHORIZED);
+    window.location.href = '/chat.html';   
+}
+
 
 Utils.populateById({
     logout: LOGOUT,
