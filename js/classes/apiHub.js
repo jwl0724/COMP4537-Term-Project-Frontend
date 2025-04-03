@@ -39,7 +39,7 @@ class APIHub {
         return await response.json();
     }
 
-    
+
     static async logout() {
         const endpoint = this.#backendEP + routes.logout;
         const response = await fetch(endpoint, {
@@ -85,7 +85,6 @@ class APIHub {
         return await response.json();
     }
 
-    // TODO: See if this is needed for after reset link was clicked
     static async reset(token, newPassword) {
         const endpoint = this.#backendEP + routes.reset;
         const response = await fetch(endpoint, {
@@ -99,11 +98,6 @@ class APIHub {
             })
         });
         return await response.json();
-    }
-
-    // TODO: Implement way later
-    static async stt(audio) {
-
     }
 
     static async getAllUsers() {
@@ -134,6 +128,21 @@ class APIHub {
 
     static async getApiStats() {
         const endpoint = this.#backendEP + routes.getApiStats;
+
+        const response = await fetch(endpoint, {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (response.status === 403) return null;
+        else return await response.json();
+    }
+
+
+    static async getEndpointStats() {
+        const endpoint = this.#backendEP + routes.getEndpointStats;
 
         const response = await fetch(endpoint, {
             method: "GET",

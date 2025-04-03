@@ -14,3 +14,4 @@ Utils.populateById({
 
 HandleTable.renderUserTable();
 HandleTable.renderApiTable();
+HandleTable.renderEndpointTable();
